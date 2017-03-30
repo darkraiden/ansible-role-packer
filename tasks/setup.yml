@@ -1,0 +1,30 @@
+- name: Get the packer package
+  get_url:
+    url: "{{ packer_url }}"
+    dest: "/tmp/{{ packer_package }}"
+
+- name: Uncompress packer package
+  become_user: root
+  unarchive:
+    src: "/tmp/{{ packer_package }}"
+    dest: /var/lib
+    remote_src: True
+
+- name: Create symlink to packer bin
+  become_user: root
+  file:
+    src: /var/lib/packer
+    dest: /usr/local/bin/packer-io
+    state: link
+
+- name: Check if compressed file still exists
+  stat:
+    path: "/tmp/{{ packer_package }}"
+  register: packer_package_status
+
+- name: Remove compressed file
+  file:
+    path: "/tmp/{{ packer_package }}"
+    state: absent
+  when: packer_package_status.stat.exists
+

@@ -1,0 +1,9 @@
+---
+
+- name: Check if packer is already installed
+  stat:
+    path: "/usr/local/bin/{{ packer_filename }}"
+  register: packer_status
+
+- include: setup.yml
+  when: not packer_status.stat.exists

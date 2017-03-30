@@ -1,0 +1,12 @@
+---
+- hosts: all
+
+  pre_tasks:
+    - name: Install unzip
+      package:
+        name: unzip
+        state: present
+        update_cache: True
+
+  roles:
+    - role_under_test

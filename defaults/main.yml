@@ -1,0 +1,9 @@
+---
+
+packer_version: 0.10.1
+packer_os: linux
+packer_arch: amd64
+packer_ext: zip
+packer_url: "https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_{{ packer_os }}_{{ packer_arch }}.{{ packer_ext }}"
+packer_package: "packer_{{ packer_version }}_{{ packer_os }}_{{ packer_arch }}.{{ packer_ext }}"
+packer_filename: packer
