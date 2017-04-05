@@ -47,8 +47,9 @@ This kitchen configuration comes with different VMs:
 
 * centos7
 * centos6
-* xenial
-* trusty
+* trusty (Ubuntu-14.04)
+* xenial (Ubuntu-16.04)
+* jessie (Debian-8)
 
 If you want to test the role using all of those machines, just run the commands below as they are. If you want to test the role on one system only, append to the commands below the VM name.
 
@@ -113,4 +114,4 @@ BSD
 Author Information
 ------------------
 
-An optional sectiThis role was created in 2017 by [Davide Di Mauro](https://github.com/darkraiden).
+This role was created in 2017 by [Davide Di Mauro](https://github.com/darkraiden).
